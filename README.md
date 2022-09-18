@@ -1,3 +1,16 @@
+# Seal All Internal Classes
+Explicitly seal all your classes by default unless it need to be inherited in a known situation. Sealed classes offer aggregated perfomance benifits that is 10x to 1000x faster than open classes.
+
+```csharp
+public class OpenClass
+{
+}
+
+public sealed class SealedClass
+{
+}
+```
+
 # Fastest Loop
 Most efficient loop with faster speeds and no allocations. If performing only iterations and no data mutations use this one to boost perfomance 
 
