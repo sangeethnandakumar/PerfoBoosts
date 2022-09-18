@@ -14,6 +14,7 @@ public sealed class SealedClass
 ```
 ![image](https://user-images.githubusercontent.com/24974154/190895170-26b51d10-7ee5-41e7-8c93-e3ae91d52241.png)
 
+---
 
 # 2. Fastest Assending Sort - By Adaptive Sort In Span.Sort()
 Span soft is mutable. Which means as it sorts it mutates the collection. Beware in order critical scenerios when using.
@@ -26,6 +27,8 @@ Span soft is mutable. Which means as it sorts it mutates the collection. Beware 
 using System.Runtime.InteropServices;
 ```
 ![image](https://user-images.githubusercontent.com/24974154/190895033-4cedb2e3-633c-4c9e-b317-c35db2378f8b.png)
+
+---
 
 # 3. Efficient Iteration - By Marshalling IEnumerable to Span<T>
 Most efficient loop with faster speeds and no allocations. If performing only iterations and no data mutations use this one to boost perfomance 
@@ -51,6 +54,8 @@ for (var i = 0; i < collectionAsSpan.Length; i++)
 }
 ```
 ![image](https://user-images.githubusercontent.com/24974154/190895076-359bd5d8-8962-48f5-b8ed-78bfb74f67f9.png)
+
+---
 
  # 4. Hyper Fast Aggregate Functions For Primitive Collections - By .NET 7 BuiltIn Hadrdware Vectorization (If supported)
 Upgrade to .NET 7 if you use primitive collection aggregate functions a lot. Your hardware must support vectorization else the function will fallback to normal compute.
@@ -78,3 +83,23 @@ for (var i = 0; i < collectionAsSpan.Length; i++)
  
  ![image](https://user-images.githubusercontent.com/24974154/190895304-8dd2f9ef-1394-4b98-a475-1cfa542c930d.png)
 
+---
+
+ # 5. HardCast To Get Back From Object Collection - Using typeof()
+Use a hard cast like this when casting instances out of object collections for maimum perfomance gains
+
+> 40X Faster
+
+```csharp
+    public List<object> MyCollection { get; set; }
+
+    public List<Person> HardCast_TypeOf()
+    {
+        return MyCollection
+            .Where(x => x.GetType() == typeof(Person))
+            .Select(x => (Person)x)
+            .ToList();
+    }
+```
+
+![image](https://user-images.githubusercontent.com/24974154/190919773-8e4a2234-673c-4a7c-90c9-b1ae008d7600.png)
