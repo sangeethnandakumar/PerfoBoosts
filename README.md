@@ -30,6 +30,10 @@ using System.Runtime.InteropServices;
 # 3. Efficient Iteration - By Marshalling IEnumerable to Span<T>
 Most efficient loop with faster speeds and no allocations. If performing only iterations and no data mutations use this one to boost perfomance 
 
+ > 100% Memory efficient
+
+> 2X Faster
+    
 ```csharp
 using System.Runtime.InteropServices;
 
