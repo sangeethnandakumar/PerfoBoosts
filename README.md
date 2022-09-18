@@ -103,3 +103,37 @@ Use a hard cast like this when casting instances out of object collections for m
 ```
 
 ![image](https://user-images.githubusercontent.com/24974154/190919773-8e4a2234-673c-4a7c-90c9-b1ae008d7600.png)
+ 
+ ---
+
+ # 6. Using List Patterns - For Powerfull Pattern Matching Switch Cases
+Use a hard cast like this when casting instances out of object collections for maimum perfomance gains
+
+```csharp
+ //Simple cases
+var names = new[] { "Sangeeth", "Nandakumar", "Navaneeth", "Nandakumar" };
+
+var text = names switch
+{
+    [_, .. string[] middle, _] => $"Middle values are {string.Join(",", middle)}",
+    _ => "Default pattern"
+};
+
+Console.WriteLine(text);
+
+//Complex Jagged cases
+var jagedArray = new[]
+{
+    new [] {1,2,3,4},
+    new [] {5,6,7, 8},
+    new [] {9,10,11,12},
+};
+var val = jagedArray switch
+{
+    [.., [_, .. int[] middle, _]] => $"Last array's middle values are {string.Join(",", middle)}",
+    _ => "Default pattern"
+};
+
+Console.WriteLine(val);
+Console.Read();
+```
