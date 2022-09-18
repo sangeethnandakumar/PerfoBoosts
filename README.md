@@ -52,8 +52,8 @@ for (var i = 0; i < collectionAsSpan.Length; i++)
 ```
 ![image](https://user-images.githubusercontent.com/24974154/190895076-359bd5d8-8962-48f5-b8ed-78bfb74f67f9.png)
 
- # 4. Hyper Fast Aggregate Functions For Int Collections - By .NET 7 BuiltIn Hadrdware Vectorization (If supported)
-Upgrade to .NET 7 if you use int collection aggregate functions a lot. Your hardware must support vectorization else the function will fallback to normal compute.
+ # 4. Hyper Fast Aggregate Functions For Primitive Collections - By .NET 7 BuiltIn Hadrdware Vectorization (If supported)
+Upgrade to .NET 7 if you use primitive collection aggregate functions a lot. Your hardware must support vectorization else the function will fallback to normal compute.
 
  > 100% Memory efficient
 
