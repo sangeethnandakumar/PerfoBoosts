@@ -1,3 +1,45 @@
+# Use-Case Based Optimisations
+
+## HashSet vs List
+
+### Use HashSet
+- If order is not important
+- All values are unique
+- Extreamily fast lookups
+- O(1) time complexity
+
+### Use List
+- Order is important
+- Values can be duplicate
+- Fast indexed access
+- O(n) time complexity
+
+## IEnnumerable vs List
+
+### Use IEnnumerable
+- Better for Read only use cases
+- More memory efficient & Less overhead
+- Don't use for frequent access
+- Slower if foreach and LINQ/LAMBDA involved as each iteration reads again without catching
+
+### Use List
+- Use when Read/Write is involved
+- Use for catched frequent access
+- Use on foreach and LINQ/LAMBDA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # 1. Aggregated Perfomance Boosting - By Sealing Classes
 Explicitly seal all your classes by default unless it need to be inherited in a known situation. Sealed classes offer aggregated perfomance benifits that is 10x to 1000x faster than open classes.
 
